@@ -21,3 +21,23 @@ The application identifies registered students through facial recognition and re
 - Email Verification Fallback
 - Anti-Spoofing Protection
 - User-Friendly Interface
+
+# Screenshots
+
+## Welcome Page
+
+The main entry point of the application where administrators can log in and students can access the attendance system.
+
+![Welcome Page](Welcome.png)
+
+## Student Registration
+
+Allows administrators to register students and capture facial data for recognition.
+
+![Registration](Register-Tab.png)
+
+## Admin Dashboard
+
+Provides attendance monitoring, student management, and system administration tools.
+
+![Admin Dashboard](Admin-Dashboard.png)
