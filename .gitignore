@@ -1,0 +1,18 @@
+# Secrets: your Gmail address and app password
+.env
+
+# Student data: face images, the database, the trained face model
+dataset/
+attendance.db
+trainer.yml
+
+# Exported attendance logs (also student data)
+*.csv
+
+# Python, PyCharm and macOS files that don't belong in the repo
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.DS_Store

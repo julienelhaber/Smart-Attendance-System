@@ -1,0 +1,6 @@
+customtkinter>=6.0
+# OpenCV 5.x wheels ship without the Haar cascade files this app needs, so stay on 4.x.
+opencv-contrib-python>=4.11,<5
+numpy>=2.0
+Pillow>=12.0
+python-dotenv>=1.0
