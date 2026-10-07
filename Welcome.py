@@ -1,8 +1,14 @@
+import os
 import sys
+import hmac
 import platform
 import subprocess
 import customtkinter as ctk
+from dotenv import load_dotenv
 from Functions import recognize_student_login, open_email_verification_window
+
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(SCRIPT_DIR, ".env"))
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
@@ -17,7 +23,21 @@ def admin_login():
     username = username_entry.get()
     password = password_entry.get()
 
-    if username == "admin" and password == "1234":
+    admin_username = os.getenv("ADMIN_USERNAME", "").strip()
+    admin_password = os.getenv("ADMIN_PASSWORD", "").strip()
+
+    if not admin_username or not admin_password:
+        status_label.configure(
+            text="Admin login is not set up.\nAdd ADMIN_USERNAME and ADMIN_PASSWORD to .env",
+            text_color="red"
+        )
+        return
+
+    # compare_digest takes the same time whether the guess is close or not
+    username_ok = hmac.compare_digest(username.encode(), admin_username.encode())
+    password_ok = hmac.compare_digest(password.encode(), admin_password.encode())
+
+    if username_ok and password_ok:
         app.destroy()
         subprocess.Popen([sys.executable, "Main.py"])
     else:

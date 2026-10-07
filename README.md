@@ -75,11 +75,12 @@ pip install -r requirements.txt
 
 OpenCV is pinned to version 4.x on purpose: the OpenCV 5 packages do not include the Haar cascade files this app needs for face and eye detection.
 
-### Email settings
+### Settings (.env)
 
 1. Create a Gmail [app password](https://support.google.com/accounts/answer/185833).
 2. Copy `.env.example` to a new file named `.env`.
 3. Put your Gmail address and the app password in `.env`.
+4. Choose the admin username and password in `.env` (`ADMIN_USERNAME`, `ADMIN_PASSWORD`).
 
 `.env` stays on your computer and is never uploaded.
 
@@ -89,7 +90,7 @@ OpenCV is pinned to version 4.x on purpose: the OpenCV 5 packages do not include
 python Welcome.py
 ```
 
-The administrator login is currently set in `Welcome.py`. Change it before using the app with real students.
+Log in to the admin dashboard with the username and password you set in `.env`.
 
 ## Screenshots
 
@@ -107,7 +108,7 @@ Face images, the trained model and the attendance database contain personal data
 
 ## Roadmap
 
-- Store administrator accounts in the database with hashed passwords
+- Store administrator accounts in the database with hashed passwords (today a single admin login is read from `.env`)
 - Prevent duplicate student emails
 - Add logging and automated tests
 - Run the camera in a background thread so the interface never freezes
